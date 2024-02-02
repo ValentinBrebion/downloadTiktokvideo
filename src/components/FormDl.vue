@@ -39,7 +39,7 @@ const emit = defineEmits(['inFocus', 'send-data'])
 const { handleSubmit, handleReset } = useForm({
   validationSchema: {
     tiktok (value) {
-      if (/^https?:\/\/(?:vm\.|m\.)?tiktok\.com/.test(value)) return true
+      if (/^https?:\/\/(?:vm\.|m\.)?tiktok\.com/.test(value) ) return true
 
       return 'Must be a tiktok link valid.'
     },
@@ -57,7 +57,7 @@ function sendDataToParent() {
     emit('send-data', loading);
     }
 
-    async function downloadTikTokVideo(videoUrl: any, outputPath: String) {
+    async function downloadTikTokVideo(videoUrl: any, outputPath: any) {
     try {
         // Faire une requête HTTP pour récupérer le contenu de la page TikTok
         const response = await axios.get(videoUrl);
